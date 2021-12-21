@@ -1,0 +1,5 @@
+.top-bar {
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to bottom, #ef3636, #f06449);
+}
