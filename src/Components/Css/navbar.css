@@ -20,22 +20,30 @@
   text-decoration: none;
   color: #4c4f65;
   transition: 0.5s all;
+  position: relative;
+}
+.nav-bar .nav-links .nav-link::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  transition: background 0.4s;
+}
+.nav-bar .nav-links .nav-link:hover::before {
+  background: linear-gradient(to bottom, #ef3636, #f06449);
 }
 .nav-bar .nav-links .nav-link:hover {
   color: #0a1931;
 }
-.nav-bar .nav-links .nav-cta {
+.nav-bar .nav-links .cta {
   color: #fff;
 }
-.nav-bar .nav-links .nav-cta:hover {
-  color: #fff;
+.nav-bar .nav-links .cta:hover::before {
+  background: transparent;
 }
-.cta {
-  padding: 0.5rem 2.4rem;
-  border-radius: 3px;
-  background: linear-gradient(to bottom, #ef3636, #f06449);
-  color: #fff;
-}
+
 .nav-bar ion-icon {
   font-size: 3rem;
   display: none;
@@ -51,7 +59,7 @@
     padding: 1rem 6.4rem;
   }
 }
-@media only screen and (max-width: 875px) {
+@media only screen and (max-width: 935px) {
   .nav-bar {
     padding: 1rem 4.8rem;
   }
@@ -62,6 +70,7 @@
     position: fixed;
     top: 0;
     left: 100%;
+    z-index: 100;
     width: 100%;
     height: 100%;
     background: #282a36;
@@ -75,6 +84,7 @@
   }
   .nav-bar ion-icon {
     display: block;
+    z-index: 101;
   }
   .open .nav-links {
     left: 0%;

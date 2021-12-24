@@ -38,7 +38,7 @@ function NavBar() {
           <a href="/" className="nav-link">Contact</a>
         </li>
         <li>
-          <a href="/" className={`nav-link nav-cta cta`}>Resume</a>
+          <a href="/" className="nav-link nav-cta cta">Resume</a>
         </li>
       </ul>
       <ion-icon
