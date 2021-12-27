@@ -3,9 +3,9 @@ import HeroSection from "./Components/Js/HeroSection";
 
 function App() {
   return (
-    <>
+    <main>
       <HeroSection />
-    </>
+    </main>
   );
 }
 

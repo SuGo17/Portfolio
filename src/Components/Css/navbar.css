@@ -29,7 +29,7 @@
   left: 0;
   height: 3px;
   width: 100%;
-  transition: background 0.4s;
+  transition: all 0.4s;
 }
 .nav-bar .nav-links .nav-link:hover::before {
   background: linear-gradient(to bottom, #ef3636, #f06449);
@@ -48,7 +48,10 @@
   font-size: 3rem;
   display: none;
 }
-
+.no-overflow {
+  overflow: hidden;
+  height: 100vh;
+}
 @media only screen and (max-width: 1200px) {
   .nav-bar {
     padding: 1rem 8rem;
@@ -93,6 +96,9 @@
 @media only screen and (max-width: 480px) {
   .nav-bar {
     padding: 1rem 3.2rem;
+  }
+  .nav-bar .logo {
+    width: 3rem;
   }
 }
 @media only screen and (max-width: 280px) {

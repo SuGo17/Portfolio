@@ -5,16 +5,19 @@ function NavBar() {
   const menuClickHandler = (e) => {
     const target = e.target.closest(".nav-bar");
     const menu = e.target.closest("ion-icon");
+    const main = document.querySelector("main");
     if (target.classList.contains("open")) {
       target.classList.remove("open");
       menu.name = "menu-outline";
       menu.style.transitionDelay = "0.3s";
       menu.style.color = "#000";
+      main.classList.remove("no-overflow");
     } else {
       target.classList.add("open");
       menu.name = "close-outline";
       menu.style.color = "#fff";
       menu.style.transitionDelay = "0s";
+      main.classList.add("no-overflow");
     }
   };
   return (

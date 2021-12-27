@@ -17,4 +17,8 @@ html {
   font-weight: 600;
   background: linear-gradient(to bottom, #ef3636, #f06449);
   color: #fff;
+  transition: all 0.5s;
+}
+.cta:hover {
+  color: #0a1931;
 }
