@@ -1,0 +1,97 @@
+@use "@Styles/index.module.scss";
+@use "@Styles/utils.module.scss";
+@use "sass:color";
+[color-scheme="dark"] {
+  .ghost {
+    --button-primary: #{index.$violet};
+    --button-secondary: #{index.$primary};
+  }
+  .contained {
+    --button-primary: #{index.$primary};
+    --button-secondary: #{index.$violet};
+  }
+}
+
+[color-scheme="light"] {
+  .ghost {
+    --button-primary: #{index.$primary};
+    --button-secondary: #{index.$violet};
+  }
+  .contained {
+    --button-primary: #{index.$primary};
+    --button-secondary: #{index.$violet};
+  }
+}
+
+.btn {
+  --button-font-size: 1.25rem;
+  --button-padding: 0;
+  --button-primary: none;
+  --button-secondary: none;
+
+  @apply w-fit font-semibold
+    cursor-pointer;
+  @include utils.transition();
+
+  &.ghost {
+    @apply inline-flex flex-col ml-1;
+
+    &::after {
+      @apply w-full h-px -mt-1;
+      content: "";
+      transition: width 0.3s ease-in-out, background-color 1s ease;
+    }
+
+    &:hover::after {
+      @apply w-1/3;
+    }
+
+    &.ghost-primary {
+      color: var(--button-primary);
+      &::after {
+        background-color: var(--button-primary);
+      }
+    }
+    &.ghost-secondary {
+      color: var(--button-secondary);
+      &::after {
+        background-color: var(--button-secondary);
+      }
+    }
+  }
+
+  &.contained {
+    --button-padding: 0.5rem 2.5rem;
+    @apply uppercase font-bold;
+    padding: var(--button-padding);
+    font-size: var(--button-font-size);
+    border-radius: 3px;
+    &:hover {
+      border-radius: 0;
+    }
+
+    &.contained-primary {
+      background-color: var(--button-primary);
+      color: index.$secondary;
+
+      &:hover {
+        background-color: color.adjust(
+          $color: index.$primary,
+          $lightness: -10%
+        );
+      }
+    }
+
+    &.contained-secondary {
+      background-color: var(--button-secondary);
+      color: index.$white;
+
+      &:hover {
+        background-color: color.adjust(
+          $color: index.$dark-violet,
+          $lightness: -10%
+        );
+      }
+    }
+  }
+}

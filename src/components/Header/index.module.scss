@@ -1,0 +1,33 @@
+@use "@Styles/index.module.scss";
+@use "@Styles/utils.module.scss";
+
+body {
+  counter-reset: section;
+}
+
+.heading {
+  @apply flex items-end gap-4;
+  @apply text-xl lg:text-4xl md:text-3xl font-semibold whitespace-nowrap;
+  letter-spacing: 2px;
+  color: var(--heading);
+  @include utils.transition();
+
+  &.numbered-heading {
+    counter-increment: section;
+  }
+
+  &.numbered-heading::before {
+    @apply lg:text-3xl md:text-2xl text-base;
+    content: "0" counter(section) ". ";
+    color: var(--sub-heading);
+    @include utils.transition();
+  }
+
+  &.numbered-heading::after {
+    @apply w-full md:max-w-52 ml-4 md:ml-8 self-center;
+    content: "";
+    height: 1px;
+    background-color: var(--sub-heading);
+    @include utils.transition();
+  }
+}

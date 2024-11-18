@@ -1,0 +1,23 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "types": ["node", "@testing-library/jest-dom"],
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@Hooks/*": ["./src/Hooks/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@Redux/*": ["./src/Redux/*"],
+      "@Router/*": ["./src/Router/*"],
+      "@Styles/*": ["./src/Styles/*"],
+      "@Utils/*": ["./src/Utils/*"]
+    }
+  }
+}

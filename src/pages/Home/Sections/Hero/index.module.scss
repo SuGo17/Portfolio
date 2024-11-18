@@ -1,0 +1,35 @@
+@use "@Styles/index.module.scss";
+@use "@Styles/utils.module.scss";
+
+.hero {
+  @apply min-h-screen flex flex-col justify-center gap-1;
+  @apply items-center lg:items-start;
+  @apply text-center lg:text-left;
+
+  & > * {
+    @include utils.transition;
+  }
+
+  .name {
+    @apply font-bold uppercase mb-1;
+    @apply lg:text-7xl md:text-5xl text-3xl;
+    letter-spacing: 3px;
+    color: var(--heading);
+  }
+  .title {
+    @apply font-bold mb-1;
+    @apply lg:text-5xl md:text-3xl text-xl;
+    letter-spacing: 1px;
+    color: var(--sub-heading);
+  }
+
+  .job-details {
+    @apply lg:mt-2;
+    @apply md:text-xl text-base;
+    color: var(--sub-heading);
+
+    .company-name {
+      @apply font-normal;
+    }
+  }
+}

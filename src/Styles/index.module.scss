@@ -1,0 +1,103 @@
+/* 
+--- 01 Typography System
+
+ - Font Sizes (px):
+    10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+ - Font Weights:
+    default: 400
+    Medium: 500
+    semi-bold: 600
+    Bold: 700
+
+ - Line Height
+    Defaults: 1 
+    Small: 1.05
+    medium: 1.2
+    paragraph defaults: 1.6
+  
+ - Letter Spacing
+    -0.5px
+    0.75px
+
+ -- 02 Colors
+  - Primary: #e67e22
+  - Tints: #fdf2e9
+  - Shades:
+  - Accents:
+  - Greys:
+  #555
+    
+ --- 05 Shadows
+    
+ --- 06 Border-Radius
+    default: 9px;
+    medium: 11px
+ --- 07 WhiteSpace
+
+ - Spacing System (px):
+    2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+
+// fonts
+$font-sans: "Source Sans 3", -apple-system, system-ui, sans-serif;
+
+// Colors Scheme
+$primary: #fbb847;
+$primary-hover: #e2a640;
+$secondary: #0f172a;
+$white: #fff;
+$black: #000;
+$light-grey: #e5e3e1;
+$grey: #999493;
+$dark-grey: #6a6868;
+$violet: #7b00ff;
+$dark-violet: #6f00e6;
+
+:root {
+  scroll-behavior: smooth;
+
+  --text-light: #{$secondary};
+  --accent1-light: #{$primary};
+  --accent2-light: #{$violet};
+  --background-light: #{$white};
+  --heading-light: #{$black};
+  --sub-heading-light: #{$dark-grey};
+  --nav-links-light: #{$dark-grey};
+  --nav-links-hover-light: #{$black};
+
+  --text-dark: #{$grey};
+  --accent1-dark: #{$primary};
+  --accent2-dark: #{$primary};
+  --background-dark: #{$secondary};
+  --heading-dark: #{$white};
+  --sub-heading-dark: #{$grey};
+  --nav-links-dark: #{$light-grey};
+  --nav-links-hover-dark: #{$primary-hover};
+}
+
+// Light Theme
+[color-scheme="light"] {
+  --heading: var(--heading-light);
+  --sub-heading: var(--sub-heading-light);
+  --text: var(--text-light);
+  --accent1: var(--accent1-light);
+  --accent2: var(--accent2-light);
+  --background: var(--background-light);
+  --nav-links: var(--nav-links-light);
+  --nav-links-hover: var(--nav-links-hover-light);
+}
+
+// Dark Theme
+
+[color-scheme="dark"] {
+  --heading: var(--heading-dark);
+  --sub-heading: var(--sub-heading-dark);
+  --text: var(--text-dark);
+  --accent1: var(--accent1-dark);
+  --accent2: var(--accent2-dark);
+  --background: var(--background-dark);
+  --nav-links: var(--nav-links-dark);
+  --nav-links-hover: var(--nav-links-hover-dark);
+}

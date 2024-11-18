@@ -1,0 +1,30 @@
+@use "@Styles/index.module.scss";
+@use "@Styles/utils.module.scss";
+
+[color-scheme="light"] {
+  .text {
+    --text-primary: #{index.$violet};
+    --text-secondary: #{index.$primary};
+  }
+}
+[color-scheme="dark"] {
+  .text {
+    --text-primary: #{index.$primary};
+    --text-secondary: #{index.$violet};
+  }
+}
+
+.text {
+  --text-primary: none;
+  --text-secondary: none;
+  @apply text-lg md:text-xl;
+  color: var(--text);
+  @include utils.transition();
+
+  &.text-primary {
+    color: var(--text-primary);
+  }
+  &.text-secondary {
+    color: var(--text-secondary);
+  }
+}

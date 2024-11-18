@@ -1,0 +1,77 @@
+@use "@Styles/index.module.scss";
+@use "@Styles/utils.module.scss";
+
+body {
+  counter-reset: nav-link;
+}
+
+.nav {
+  @apply p-6 lg:px-20 lg:py-8;
+  @apply flex items-center justify-between;
+  @apply fixed left-0 right-0 bg-inherit;
+  .middle {
+    @apply fixed lg:static;
+    @apply top-0 right-0 bottom-0 left-0;
+    @apply lg:z-auto z-40 lg:translate-x-0 translate-x-full;
+    @include utils.transition(all, 0.3s, linear);
+    .nav-links {
+      @apply flex flex-col lg:flex-row items-center justify-center;
+      @apply gap-8 font-bold text-lg uppercase;
+      @apply h-full w-full lg:h-auto lg:w-auto lg:bg-inherit;
+      letter-spacing: 2px;
+      list-style: none;
+      @media (max-width: 1024px) {
+        background-color: var(--background);
+      }
+
+      .nav-link {
+        counter-increment: nav-link;
+        @apply px-0 py-0 relative text-sm;
+        color: var(--nav-links);
+        @include utils.transition(color, 0.2s, ease-in-out);
+
+        a {
+          @include utils.transition;
+        }
+
+        a::before {
+          @apply text-xs mr-2;
+          content: "0" counter(nav-link) ".";
+        }
+
+        &:hover::before {
+          color: var(--nav-links-hover);
+        }
+
+        a:hover,
+        a:focus {
+          color: var(--nav-links-hover);
+        }
+
+        a::after {
+          @apply bottom-0 left-8 absolute;
+          content: "";
+          height: 2px;
+          width: 0;
+          background-color: var(--nav-links-hover);
+          @include utils.transition(width, 0.2s, ease-in-out);
+        }
+
+        a:hover::after,
+        a:focus::after {
+          width: 30px;
+        }
+      }
+    }
+    &.active {
+      @apply translate-x-0;
+    }
+  }
+  .right {
+    @apply flex items-center justify-center gap-4;
+    .menu {
+      @apply text-3xl z-50 lg:hidden;
+      color: var(--nav-links);
+    }
+  }
+}

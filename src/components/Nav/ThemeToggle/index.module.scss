@@ -1,0 +1,46 @@
+@use "sass:color";
+@use "@Styles/index.module.scss";
+@use "@Styles/utils.module.scss";
+
+.theme-icon-button {
+  @apply p-2 rounded-full flex items-center justify-center cursor-pointer;
+
+  box-shadow: inset 0px 8px 60px rgba(0, 0, 0, 0.1),
+    inset 0px 8px 8px rgba(0, 0, 0, 0.1), inset 0px -4px -4px rgba(0, 0, 0, 0.1);
+  background-color: index.$secondary;
+  width: 2.5rem;
+  height: 2.5rem;
+  @include utils.transition;
+  transition-delay: 0.2s;
+
+  &:hover {
+    background-color: color.adjust($color: index.$secondary, $lightness: 20%);
+  }
+
+  &.dark {
+    background-color: index.$light-grey;
+    &:hover {
+      background-color: color.adjust(index.$light-grey, $lightness: -10%);
+    }
+    .theme-icon.moon {
+      transform: rotate(360deg) scale(0);
+    }
+    .theme-icon.sun {
+      color: index.$secondary;
+      transform: rotate(0deg) scale(1);
+    }
+  }
+
+  .theme-icon {
+    @apply cursor-pointer absolute text-2xl;
+    @include utils.transition;
+    transition-delay: 0.5s;
+    &.moon {
+      color: index.$white;
+    }
+    &.sun {
+      color: transparent;
+      transform: rotate(360deg) scale(0);
+    }
+  }
+}

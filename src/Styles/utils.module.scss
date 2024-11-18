@@ -1,0 +1,12 @@
+$md: 768px;
+$lg: 1024px;
+
+@mixin transition(
+  $property: all,
+  $duration: 1s,
+  $animation-type: ease,
+  $delay: 0
+) {
+  transition: $property $duration $animation-type;
+  transition-delay: $delay;
+}
