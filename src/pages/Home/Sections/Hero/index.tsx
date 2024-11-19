@@ -8,7 +8,11 @@ import Button from "@components/Button";
 const Hero: FC = () => {
   const getSCSSSelectors = useGetStyleSelectors(modules);
   return (
-    <Section className={getSCSSSelectors("hero")} width="max-w-screen-xl">
+    <Section
+      className={getSCSSSelectors("hero")}
+      width="max-w-screen-xl"
+      paddingVerticle={["py-[104px]"]}
+    >
       <h1 className={getSCSSSelectors("name")}>
         {data.name.firstname}{" "}
         <span className="inline-block">{data.name.lastname}</span>

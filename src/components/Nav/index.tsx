@@ -38,7 +38,7 @@ const Nav: FC = () => {
   }, []);
 
   return (
-    <nav className={getSCSSSelectors("nav")}>
+    <nav className={getSCSSSelectors("nav", "show-nav")}>
       <div className={getSCSSSelectors("left")}>
         <Logo
           fill={theme === Themes.LIGHT ? LIGHT_ICON_FILL : DARK_ICON_FILL}

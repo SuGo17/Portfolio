@@ -8,8 +8,8 @@ body {
 .nav {
   @apply p-6 lg:px-20 lg:py-8 z-40;
   @apply flex items-center justify-between;
-  @apply sticky -top-full bg-inherit;
-  transition: all 1s ease, top 0.5s ease-out;
+  @apply fixed -top-full left-0 right-0 bg-inherit;
+  transition: top 0.5s ease-out;
   &.show-nav {
     @apply top-0;
   }
@@ -22,6 +22,7 @@ body {
       @apply flex flex-col lg:flex-row items-center justify-center;
       @apply gap-8 font-bold text-lg uppercase;
       @apply h-full w-full lg:h-auto lg:w-auto lg:bg-inherit z-40;
+      @include utils.transition();
       letter-spacing: 2px;
       list-style: none;
       @media (max-width: 1024px) {
