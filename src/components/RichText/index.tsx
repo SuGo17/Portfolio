@@ -2,29 +2,43 @@ import { cloneElement, FC } from "react";
 import modules from "./index.module.scss";
 import useGetStyleSelectors from "@src/Hooks/useGetStyleSelectors";
 import Text, { TextProps } from "../Text";
-import Button from "@components/Button";
+import Button, { ButtonProps } from "@components/Button";
 
-type ComponentType = {
-  type: "link";
-  children?: string;
-  props: Record<string, string | number | boolean>;
-};
+export type ComponentType =
+  | {
+      type: "link" | "button";
+      children?: string;
+      props: ButtonProps;
+    }
+  | {
+      type: "text";
+      children?: string;
+      props: TextProps;
+    };
 
 type RichTextProps = TextProps & {
   template?: string;
   components?: ComponentType[];
+  getParentCSSSelectors: (...selectors: (string | number)[]) => string;
 };
 
-const getComponent = ({ type, props }: ComponentType): JSX.Element => {
+const getComponent = ({
+  type,
+  props,
+  children,
+}: ComponentType): JSX.Element => {
   switch (type) {
+    case "text":
+      return <Text {...props}>{children}</Text>;
     default:
-      return <Button {...props}>{props.title}</Button>;
+      return <Button {...props}>{children || props.title}</Button>;
   }
 };
 
 const compileTemplateStringToRichText = (
   template: string,
-  components: ComponentType[]
+  components: ComponentType[],
+  getSCSSSelectors: (...selectors: (string | number)[]) => string
 ): JSX.Element => {
   const markersTemplate = template.replace(/\{\{(\d+)\}\}/g, "@@$1@@");
   const parts = markersTemplate.split(/(@@\d+@@)/);
@@ -41,6 +55,9 @@ const compileTemplateStringToRichText = (
             {
               key: index,
               ...component.props,
+              className: getSCSSSelectors(
+                ...(component.props.className as string).split(" ")
+              ),
             },
             component.children
           );
@@ -55,11 +72,16 @@ const RichText: FC<RichTextProps> = ({
   template = "",
   components = [],
   className,
+  getParentCSSSelectors,
 }) => {
   const getSCSSSelectors = useGetStyleSelectors(modules);
   return (
     <Text className={getSCSSSelectors(className || "")}>
-      {compileTemplateStringToRichText(template, components)}
+      {compileTemplateStringToRichText(
+        template,
+        components,
+        getParentCSSSelectors
+      )}
     </Text>
   );
 };

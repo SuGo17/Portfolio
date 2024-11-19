@@ -6,18 +6,22 @@ body {
 }
 
 .nav {
-  @apply p-6 lg:px-20 lg:py-8;
+  @apply p-6 lg:px-20 lg:py-8 z-40;
   @apply flex items-center justify-between;
-  @apply fixed left-0 right-0 bg-inherit;
+  @apply sticky -top-full bg-inherit;
+  transition: all 1s ease, top 0.5s ease-out;
+  &.show-nav {
+    @apply top-0;
+  }
   .middle {
     @apply fixed lg:static;
     @apply top-0 right-0 bottom-0 left-0;
     @apply lg:z-auto z-40 lg:translate-x-0 translate-x-full;
-    @include utils.transition(all, 0.3s, linear);
+    @include utils.transition();
     .nav-links {
       @apply flex flex-col lg:flex-row items-center justify-center;
       @apply gap-8 font-bold text-lg uppercase;
-      @apply h-full w-full lg:h-auto lg:w-auto lg:bg-inherit;
+      @apply h-full w-full lg:h-auto lg:w-auto lg:bg-inherit z-40;
       letter-spacing: 2px;
       list-style: none;
       @media (max-width: 1024px) {

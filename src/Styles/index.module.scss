@@ -44,41 +44,57 @@
 $font-sans: "Source Sans 3", -apple-system, system-ui, sans-serif;
 
 // Colors Scheme
-$primary: #fbb847;
-$primary-hover: #e2a640;
-$secondary: #0f172a;
+$yellow: #fbb847;
+$yellow-hover: #e2a640;
+$dark-blue: #0f172a;
 $white: #fff;
 $black: #000;
 $light-grey: #e5e3e1;
 $grey: #999493;
 $dark-grey: #6a6868;
-$violet: #7b00ff;
-$dark-violet: #6f00e6;
+$blue: #1230ae;
+$blue-hover: #6f00e6;
 
 :root {
   scroll-behavior: smooth;
 
-  --text-light: #{$secondary};
-  --accent1-light: #{$primary};
-  --accent2-light: #{$violet};
+  --primary-light: #{$blue};
+  --primary-btn-text-light: #{$white};
+  --primary-light-hover: #{$blue-hover};
+  --secondary-light: #{$yellow};
+  --text-light: #{$dark-blue};
+  --accent1-light: #{$yellow};
+  --accent2-light: #{$blue};
   --background-light: #{$white};
   --heading-light: #{$black};
   --sub-heading-light: #{$dark-grey};
   --nav-links-light: #{$dark-grey};
-  --nav-links-hover-light: #{$black};
+  --nav-links-hover-light: #{$blue};
 
+  --primary-dark: #{$yellow};
+  --primary-btn-text-dark: #{$dark-blue};
+  --primary-dark-hover: #{$yellow-hover};
+  --secondary-dark: #{$blue};
+  --secondary-btn-text-dark: #{$white};
+  --secondary-dark-hover: #{$blue-hover};
   --text-dark: #{$grey};
-  --accent1-dark: #{$primary};
-  --accent2-dark: #{$primary};
-  --background-dark: #{$secondary};
+  --accent1-dark: #{$yellow};
+  --accent2-dark: #{$yellow};
+  --background-dark: #{$dark-blue};
   --heading-dark: #{$white};
   --sub-heading-dark: #{$grey};
   --nav-links-dark: #{$light-grey};
-  --nav-links-hover-dark: #{$primary-hover};
+  --nav-links-hover-dark: #{$yellow-hover};
 }
 
 // Light Theme
 [color-scheme="light"] {
+  --primary: var(--primary-light);
+  --primary-btn-text: var(--primary-btn-text-light);
+  --primary-hover: var(--primary-light-hover);
+  --secondary: var(--secondary-light);
+  --secondary-hover: var(--secondary-hover);
+  --secondary-btn-text: var(--secondary-btn-text-light);
   --heading: var(--heading-light);
   --sub-heading: var(--sub-heading-light);
   --text: var(--text-light);
@@ -92,6 +108,12 @@ $dark-violet: #6f00e6;
 // Dark Theme
 
 [color-scheme="dark"] {
+  --primary: var(--primary-dark);
+  --primary-hover: var(--primary-hover-dark);
+  --primary-btn-text: var(--primary-btn-text-dark);
+  --secondary: var(--secondary-dark);
+  --secondary-hover: var(--secondary-dark-hover);
+  --secondary-btn-text: var(--secondary-btn-text-dark);
   --heading: var(--heading-dark);
   --sub-heading: var(--sub-heading-dark);
   --text: var(--text-dark);

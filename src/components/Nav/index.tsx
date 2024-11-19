@@ -1,4 +1,5 @@
-import { FC, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { FC, useEffect, useState } from "react";
 import { navLinks } from "./data";
 import modules from "./index.module.scss";
 import Logo from "../Logo";
@@ -9,7 +10,7 @@ import { Themes } from "@Redux/Theme/enum";
 import Menu from "./Menu";
 import useGetStyleSelectors from "@Hooks/useGetStyleSelectors";
 
-const LIGHT_ICON_FILL = "#6A6868";
+const LIGHT_ICON_FILL = "#1230AE";
 const DARK_ICON_FILL = "#fbb847";
 
 const Nav: FC = () => {
@@ -18,10 +19,27 @@ const Nav: FC = () => {
   ) as Themes;
   const [isOpen, setIsOpen] = useState(false);
   const getSCSSSelectors = useGetStyleSelectors(modules);
+  let lastScrollTop = 0;
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      const st = window.pageYOffset || document.documentElement.scrollTop;
+      const navElement = document.querySelector(
+        `nav.${getSCSSSelectors("nav")}`
+      );
+      if (st > lastScrollTop) {
+        navElement?.classList.remove(getSCSSSelectors("show-nav"));
+      } else if (st < lastScrollTop) {
+        navElement?.classList.add(getSCSSSelectors("show-nav"));
+      }
+      lastScrollTop = st <= 0 ? 0 : st;
+    });
+
+    return () => {};
+  }, []);
 
   return (
-    <nav className={modules["nav"]}>
-      <div className={modules["left"]}>
+    <nav className={getSCSSSelectors("nav")}>
+      <div className={getSCSSSelectors("left")}>
         <Logo
           fill={theme === Themes.LIGHT ? LIGHT_ICON_FILL : DARK_ICON_FILL}
         />

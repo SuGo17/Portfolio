@@ -1,3 +1,37 @@
+@use "@Styles/index.module.scss";
+@use "@Styles/utils.module.scss";
+
 .about {
-  //   @apply min-h-screen;
+  .content {
+    @apply flex flex-col lg:flex-row items-center md:gap-4 gap-12;
+    .left {
+      @apply w-full lg:w-3/5 order-2 lg:order-1;
+      .about-links {
+        @apply font-normal m-0;
+      }
+      .about-highlight-text {
+        @apply inline;
+      }
+    }
+    .right {
+      @apply w-full lg:w-2/5 flex items-center justify-center relative order-1 lg:order-2;
+      img {
+        @apply max-w-[200px] lg:max-w-[250px] xl:max-w-[300px] rounded-lg z-10 -translate-x-3 -translate-y-3;
+        @include utils.transition();
+      }
+      &::after {
+        @apply absolute top-[50%] left-[50%] w-[200px] h-[200px] lg:w-[250px] lg:h-[250px] xl:w-[300px] xl:h-[300px] rounded-lg;
+        content: "";
+        transform: translate(calc(-50% + 4px), calc(-50% + 4px));
+        border: 2px solid var(--primary);
+        transition: all 0.3s linear, background-color 0.3s linear 0.2s;
+      }
+      &:hover img {
+        @apply -translate-x-5 -translate-y-5;
+      }
+      &:hover::after {
+        transform: translate(calc(-50% + 12px), calc(-50% + 12px));
+      }
+    }
+  }
 }

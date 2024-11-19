@@ -4,47 +4,36 @@ import Header from "@src/components/Header";
 import Section from "@src/components/Section";
 import useGetStyleSelectors from "@src/Hooks/useGetStyleSelectors";
 import RichText from "@src/components/RichText";
+import { data } from "./data";
 
 const About: FC = () => {
   const getSCSSSelectors = useGetStyleSelectors(modules);
   return (
-    <Section className={getSCSSSelectors("about")} width="max-w-screen-xl">
-      <Header className="mb-10">About Me</Header>
-      <RichText
-        template="Hello! My name is Sura and I enjoy creating things that live on the
-        internet. My interest in web development started back in 2012 when I
-        decided to try editing custom Tumblr {{1}} — turns out hacking together
-        a custom reblog button taught me a lot {{2}} HTML & {{3}}."
-        components={[
-          {
-            type: "link",
-            children: "First",
-            props: {
-              as: "a",
-              variant: "ghost-secondary",
-              href: "https://www.suryakotikiran.in",
-            },
-          },
-          {
-            type: "link",
-            children: "Second",
-            props: {
-              as: "a",
-              variant: "ghost-secondary",
-              href: "https://www.suryakotikiran.in",
-            },
-          },
-          {
-            type: "link",
-            children: "Third",
-            props: {
-              as: "a",
-              variant: "ghost-secondary",
-              href: "https://www.suryakotikiran.in",
-            },
-          },
-        ]}
-      />
+    <Section
+      className={getSCSSSelectors("about")}
+      width="max-w-screen-xl"
+      paddingVerticle={["py-20"]}
+      id="about-me-section"
+    >
+      <Header className="mb-14 md:mb-10">{data.title}</Header>
+      <div className={getSCSSSelectors("content")}>
+        <div className={getSCSSSelectors("left")}>
+          {data.richTextDataArr.map((richTextData, index) => (
+            <>
+              {index !== 0 && <br />}
+              <RichText
+                key={index}
+                template={richTextData.template}
+                components={richTextData.components}
+                getParentCSSSelectors={getSCSSSelectors}
+              />
+            </>
+          ))}
+        </div>
+        <div className={getSCSSSelectors("right")}>
+          <img src={data.image.src} alt={data.image.alt} />
+        </div>
+      </div>
     </Section>
   );
 };
