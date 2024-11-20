@@ -3,6 +3,10 @@
 
 body {
   counter-reset: nav-link;
+
+  &:has(div.middle.nav-open) {
+    overflow: hidden;
+  }
 }
 
 .nav {
@@ -14,24 +18,26 @@ body {
     @apply top-0;
   }
   .middle {
+    @apply flex justify-center items-center;
+    @apply h-full w-full lg:h-auto lg:w-auto;
     @apply fixed lg:static;
     @apply top-0 right-0 bottom-0 left-0;
-    @apply lg:z-auto z-40 lg:translate-x-0 translate-x-full;
+    @apply lg:z-auto z-40 lg:translate-x-0 translate-x-full lg:bg-inherit;
     @include utils.transition();
+    @media (max-width: 1024px) {
+      background-color: var(--background);
+    }
     .nav-links {
-      @apply flex flex-col lg:flex-row items-center justify-center;
+      @apply flex flex-col lg:flex-row lg:items-center lg:justify-center;
       @apply gap-8 font-bold text-lg uppercase;
-      @apply h-full w-full lg:h-auto lg:w-auto lg:bg-inherit z-40;
+      @apply lg:bg-inherit z-40;
       @include utils.transition();
       letter-spacing: 2px;
       list-style: none;
-      @media (max-width: 1024px) {
-        background-color: var(--background);
-      }
 
       .nav-link {
         counter-increment: nav-link;
-        @apply px-0 py-0 relative text-sm;
+        @apply px-0 py-0 relative text-sm text-left;
         color: var(--nav-links);
         @include utils.transition(color, 0.2s, ease-in-out);
 
@@ -68,7 +74,7 @@ body {
         }
       }
     }
-    &.active {
+    &.nav-open {
       @apply translate-x-0;
     }
   }

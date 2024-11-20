@@ -20,21 +20,23 @@ const Nav: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const getSCSSSelectors = useGetStyleSelectors(modules);
   let lastScrollTop = 0;
-  useEffect(() => {
-    document.addEventListener("scroll", () => {
-      const st = window.pageYOffset || document.documentElement.scrollTop;
-      const navElement = document.querySelector(
-        `nav.${getSCSSSelectors("nav")}`
-      );
-      if (st > lastScrollTop) {
-        navElement?.classList.remove(getSCSSSelectors("show-nav"));
-      } else if (st < lastScrollTop) {
-        navElement?.classList.add(getSCSSSelectors("show-nav"));
-      }
-      lastScrollTop = st <= 0 ? 0 : st;
-    });
 
-    return () => {};
+  const handleDocumentScroll = () => {
+    const st = window.pageYOffset || document.documentElement.scrollTop;
+    const navElement = document.querySelector(`nav.${getSCSSSelectors("nav")}`);
+    if (st > lastScrollTop) {
+      navElement?.classList.remove(getSCSSSelectors("show-nav"));
+    } else if (st < lastScrollTop) {
+      navElement?.classList.add(getSCSSSelectors("show-nav"));
+    }
+    lastScrollTop = st <= 0 ? 0 : st;
+  };
+  useEffect(() => {
+    document.addEventListener("scroll", handleDocumentScroll);
+
+    return () => {
+      document.removeEventListener("scroll", handleDocumentScroll);
+    };
   }, []);
 
   return (
@@ -45,7 +47,7 @@ const Nav: FC = () => {
         />
       </div>
       <div className="flex items-center gap-12">
-        <div className={getSCSSSelectors("middle", isOpen ? "active" : "")}>
+        <div className={getSCSSSelectors("middle", isOpen ? "nav-open" : "")}>
           <ul className={getSCSSSelectors("nav-links")}>
             {navLinks.map((navLink) => (
               <li key={navLink.href} className={getSCSSSelectors("nav-link")}>
