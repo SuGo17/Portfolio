@@ -52,7 +52,7 @@ $black: #000;
 $light-grey: #e5e3e1;
 $grey: #999493;
 $dark-grey: #6a6868;
-$blue: #1230ae;
+$blue: #5a23b9;
 $blue-hover: #6f00e6;
 
 :root {
@@ -109,7 +109,7 @@ $blue-hover: #6f00e6;
 
 [color-scheme="dark"] {
   --primary: var(--primary-dark);
-  --primary-hover: var(--primary-hover-dark);
+  --primary-hover: var(--primary-dark-hover);
   --primary-btn-text: var(--primary-btn-text-dark);
   --secondary: var(--secondary-dark);
   --secondary-hover: var(--secondary-dark-hover);

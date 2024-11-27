@@ -16,7 +16,7 @@ export const data: AboutDataType = {
   richTextDataArr: [
     {
       template:
-        "Hi! My name is Surya, and I love crafting engaging digital experiences that live on the internet. My interest in web development began back in 2017 during my college days when I took on the challenge of recreating our {{1}} Wi-Fi portal. What started as a fun experiment taught me the fundamentals of HTML and CSS and sparked my passion for coding.",
+        "Hi! My name is Surya, and I love crafting engaging digital experiences that live on the internet. My interest in web development began back in 2017 during my college days when I took on the challenge of recreating our {{1}} wifi portal. What started as a fun experiment taught me the fundamentals of HTML and CSS and sparked my passion for coding.",
       components: [
         {
           type: "link",
@@ -32,11 +32,11 @@ export const data: AboutDataType = {
     },
     {
       template:
-        "Fast forward to today, after honing my skills during a frontend internship at {{1}}, I'm now building accessible and user-focused frontend applications as part of the talented team at {{2}}, contributing to innovative digital solutions for a variety of clients.",
+        "Fast forward to today, after honing my skills during a frontend internship at a {{1}}, I'm now building accessible and user-focused frontend applications as part of the talented team at {{2}}, contributing to innovative digital solutions for a variety of clients.",
       components: [
         {
           type: "link",
-          children: "Innovation Creation Solutions",
+          children: "start-up",
           props: {
             as: "a",
             variant: "ghost-primary",

@@ -10,8 +10,9 @@ import { Themes } from "@Redux/Theme/enum";
 import Menu from "./Menu";
 import useGetStyleSelectors from "@Hooks/useGetStyleSelectors";
 
-const LIGHT_ICON_FILL = "#1230AE";
+const LIGHT_ICON_FILL = "#5A23B9";
 const DARK_ICON_FILL = "#fbb847";
+const SCROLL_OFFSET = 100;
 
 const Nav: FC = () => {
   const theme = useSelector<RootStateType>(
@@ -24,7 +25,7 @@ const Nav: FC = () => {
   const handleDocumentScroll = () => {
     const st = window.pageYOffset || document.documentElement.scrollTop;
     const navElement = document.querySelector(`nav.${getSCSSSelectors("nav")}`);
-    if (st > lastScrollTop) {
+    if (st >= SCROLL_OFFSET && st > lastScrollTop) {
       navElement?.classList.remove(getSCSSSelectors("show-nav"));
     } else if (st < lastScrollTop) {
       navElement?.classList.add(getSCSSSelectors("show-nav"));
