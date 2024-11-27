@@ -3,6 +3,7 @@ import { ComponentType } from "@src/components/RichText";
 type RichtextDataType = {
   template: string;
   components: ComponentType[];
+  addEmptyLine?: boolean;
 };
 
 type AboutDataType = {
@@ -55,6 +56,11 @@ export const data: AboutDataType = {
           },
         },
       ],
+    },
+    {
+      template: "Here are a few technologies I've been working with recently:",
+      components: [],
+      addEmptyLine: false,
     },
   ],
   image: {

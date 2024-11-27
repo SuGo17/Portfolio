@@ -5,6 +5,7 @@ import Section from "@src/components/Section";
 import useGetStyleSelectors from "@src/Hooks/useGetStyleSelectors";
 import RichText from "@src/components/RichText";
 import { data } from "./data";
+import List from "@src/components/List";
 
 const About: FC = () => {
   const getSCSSSelectors = useGetStyleSelectors(modules);
@@ -19,16 +20,24 @@ const About: FC = () => {
       <div className={getSCSSSelectors("content")}>
         <div className={getSCSSSelectors("left")}>
           {data.richTextDataArr.map((richTextData, index) => (
-            <>
-              {index !== 0 && <br />}
-              <RichText
-                key={index}
-                template={richTextData.template}
-                components={richTextData.components}
-                getParentCSSSelectors={getSCSSSelectors}
-              />
-            </>
+            <RichText
+              key={index}
+              template={richTextData.template}
+              components={richTextData.components}
+              getParentCSSSelectors={getSCSSSelectors}
+              addEmptyLine={richTextData.addEmptyLine}
+            />
           ))}
+          <List
+            listItems={[
+              "Javascript (ES6+)",
+              "Typescript",
+              "React.js",
+              "Redux.js",
+              "Node.js",
+              "Sitecore CMS",
+            ]}
+          />
         </div>
         <div className={getSCSSSelectors("right")}>
           <img src={data.image.src} alt={data.image.alt} />

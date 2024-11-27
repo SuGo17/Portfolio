@@ -20,6 +20,7 @@ type RichTextProps = TextProps & {
   template?: string;
   components?: ComponentType[];
   getParentCSSSelectors: (...selectors: (string | number)[]) => string;
+  addEmptyLine?: boolean;
 };
 
 const getComponent = ({
@@ -56,7 +57,7 @@ const compileTemplateStringToRichText = (
               key: index,
               ...component.props,
               className: getSCSSSelectors(
-                ...(component.props.className as string).split(" ")
+                ...(component.props?.className || "").split(" ")
               ),
             },
             component.children
@@ -73,16 +74,20 @@ const RichText: FC<RichTextProps> = ({
   components = [],
   className,
   getParentCSSSelectors,
+  addEmptyLine = true,
 }) => {
   const getSCSSSelectors = useGetStyleSelectors(modules);
   return (
-    <Text className={getSCSSSelectors(className || "")}>
-      {compileTemplateStringToRichText(
-        template,
-        components,
-        getParentCSSSelectors
-      )}
-    </Text>
+    <>
+      <Text className={getSCSSSelectors(className || "")}>
+        {compileTemplateStringToRichText(
+          template,
+          components,
+          getParentCSSSelectors
+        )}
+      </Text>
+      {addEmptyLine && <br />}
+    </>
   );
 };
 

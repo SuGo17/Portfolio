@@ -1,0 +1,19 @@
+@use "@Styles/index.module.scss";
+@use "@Styles/utils.module.scss";
+
+.list-container {
+  @apply grid gap-x-0 gap-y-3 p-0 mt-5 list-none overflow-hidden;
+  grid-template-columns: repeat(2, minmax(140px, 200px));
+
+  .list-item {
+    @apply flex items-center gap-3 text-base;
+    color: var(--text);
+
+    &::before {
+      @apply text-xl;
+      content: "▹";
+      line-height: 12px;
+      color: var(--primary);
+    }
+  }
+}
