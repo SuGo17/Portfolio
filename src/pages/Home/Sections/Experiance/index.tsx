@@ -64,7 +64,7 @@ const Experiance: FC = () => {
   };
 
   return (
-    <Section width="max-w-screen-xl">
+    <Section width="max-w-screen-xl" id="experience-section">
       <Header className="mb-14 md:mb-10">Experiance</Header>
 
       <div
