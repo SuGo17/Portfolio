@@ -1,0 +1,80 @@
+@use "@Styles/index.module.scss";
+@use "@Styles/utils.module.scss";
+
+[color-scheme="light"] {
+  .jobs-container {
+    --tab-button-border-color: var(--background-dark);
+  }
+}
+
+[color-scheme="dark"] {
+  .jobs-container {
+    --tab-button-border-color: var(--background-light);
+  }
+}
+
+.jobs-container {
+  --tab-button-height: 42px;
+  --tab-button-width: 150px;
+  --selected-tab: 1;
+  @apply flex flex-col md:flex-row gap-5;
+
+  .tab-list {
+    @apply flex flex-row md:flex-col relative pb-2 md:p-0 md:w-fit w-full;
+    @media screen and (max-width: 765px) {
+      height: calc(var(--tab-button-height) + 10px);
+      overflow-x: scroll;
+    }
+    .tab-button {
+      @apply text-left text-base flex justify-center md:justify-start items-center text-nowrap;
+      @apply md:border-l-2 border-b-2 md:border-b-0;
+      border-color: color-mix(
+        in srgb,
+        var(--tab-button-border-color),
+        transparent 80%
+      );
+      height: var(--tab-button-height);
+      min-width: var(--tab-button-width);
+      letter-spacing: 1px;
+      padding: 0 20px 2px 20px;
+      color: var(--text);
+      @include utils.transition($duration: 0.5s);
+
+      &:hover,
+      &:focus {
+        background-color: color-mix(in srgb, var(--primary), transparent 85%);
+      }
+
+      &.tab-active {
+        @apply font-medium text-[var(--primary)];
+      }
+    }
+    .tab-select-highlight {
+      @apply absolute left-0 bottom-0 md:top-0;
+      @apply w-[var(--tab-button-width)] md:w-0.5;
+      @apply h-0.5 md:h-[var(--tab-button-height)];
+      background-color: var(--primary);
+      top: calc(var(--tab-button-height) * var(--selected-tab));
+      @include utils.transition(all, 0.3s, ease);
+
+      @media only screen and (max-width: 765px) {
+        top: calc(100% - 12px);
+        left: calc(var(--tab-button-width) * var(--selected-tab));
+      }
+    }
+  }
+  .tab-panel {
+    @apply w-auto h-auto px-1.5 py-2.5;
+
+    h3 {
+      @apply text-xl font-medium mb-0.5 text-[var(--heading)];
+
+      .company {
+        @apply text-lg;
+      }
+    }
+    p.range {
+      @apply text-sm font-normal mb-6 mt-2 text-[var(--text)];
+    }
+  }
+}

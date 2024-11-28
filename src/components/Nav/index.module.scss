@@ -12,10 +12,11 @@ body {
 .nav {
   @apply p-6 lg:px-20 lg:py-8 z-40;
   @apply flex items-center justify-between;
-  @apply fixed -top-full left-0 right-0 bg-inherit;
-  transition: top 0.5s ease-out;
+  @apply fixed top-0 left-0 right-0 bg-inherit;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-out 0s;
   &.show-nav {
-    @apply top-0;
+    transform: translateY(0);
   }
   .middle {
     @apply flex justify-center items-center;

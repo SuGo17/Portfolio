@@ -18,14 +18,14 @@
   }
   .title {
     @apply font-bold mb-1;
-    @apply lg:text-5xl md:text-3xl text-xl;
+    @apply lg:text-6xl md:text-5xl text-3xl;
     letter-spacing: 1px;
     color: var(--sub-heading);
   }
 
   .job-details {
     @apply lg:mt-2;
-    @apply md:text-xl text-base;
+    @apply md:text-xl text-sm;
     color: var(--sub-heading);
 
     .company-name {

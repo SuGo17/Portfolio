@@ -1,3 +1,4 @@
+import { ListProps } from "@src/components/List";
 import { ComponentType } from "@src/components/RichText";
 
 type RichtextDataType = {
@@ -9,6 +10,7 @@ type RichtextDataType = {
 type AboutDataType = {
   title: string;
   richTextDataArr: RichtextDataType[];
+  skillsList: { props: ListProps };
   image: { src: string; alt: string };
 };
 
@@ -27,6 +29,7 @@ export const data: AboutDataType = {
             variant: "ghost-primary",
             href: "https://mvjce.edu.in/",
             className: "about-links",
+            target: "_blank",
           },
         },
       ],
@@ -43,6 +46,7 @@ export const data: AboutDataType = {
             variant: "ghost-primary",
             href: "https://icsoln.com/",
             className: "about-links",
+            target: "_blank",
           },
         },
         {
@@ -53,6 +57,7 @@ export const data: AboutDataType = {
             variant: "ghost-primary",
             className: "about-links",
             href: "https://www.accenture.com/",
+            target: "_blank",
           },
         },
       ],
@@ -63,6 +68,20 @@ export const data: AboutDataType = {
       addEmptyLine: false,
     },
   ],
+  skillsList: {
+    props: {
+      isGrid: true,
+      gridColumns: 2,
+      listItems: [
+        "Javascript (ES6+)",
+        "Typescript",
+        "React.js",
+        "Redux.js",
+        "Node.js",
+        "Sitecore CMS",
+      ],
+    },
+  },
   image: {
     src: "./my-pic.jfif",
     alt: "surya's  image",

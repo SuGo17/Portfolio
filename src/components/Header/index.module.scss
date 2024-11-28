@@ -1,23 +1,20 @@
 @use "@Styles/index.module.scss";
 @use "@Styles/utils.module.scss";
 
-body {
-  counter-reset: section;
+main {
+  counter-reset: section 0;
 }
 
 .heading {
   @apply flex items-end gap-4;
-  @apply text-xl lg:text-4xl md:text-3xl font-semibold whitespace-nowrap;
+  @apply text-2xl lg:text-4xl md:text-3xl font-semibold whitespace-nowrap;
   letter-spacing: 2px;
   color: var(--heading);
   @include utils.transition();
 
-  &.numbered-heading {
-    counter-increment: section;
-  }
-
   &.numbered-heading::before {
     @apply lg:text-3xl md:text-2xl text-base;
+    counter-increment: section 1;
     content: "0" counter(section) ". ";
     color: var(--sub-heading);
     @include utils.transition();

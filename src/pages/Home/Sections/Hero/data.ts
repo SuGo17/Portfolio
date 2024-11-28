@@ -3,7 +3,7 @@ export const data = {
     firstname: "SURYAKOTIKIRAN",
     lastname: "M S",
   },
-  title: "Aspiring Front-End Developer.",
+  title: "Software Developer",
   company: {
     role: "Full Time Software Engineer",
     title: "Accenture",

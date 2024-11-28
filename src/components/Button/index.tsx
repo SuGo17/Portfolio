@@ -16,6 +16,7 @@ export type ButtonProps = ButtonOrAnchorProps & {
 
 const buttonClassNames: Record<ButtonVariant, string> = {
   "ghost-primary": "ghost",
+  "ghost-neutral-hover-contained": "ghost",
   "ghost-secondary": "ghost",
   "contained-primary": "contained",
   "contained-secondary": "contained",

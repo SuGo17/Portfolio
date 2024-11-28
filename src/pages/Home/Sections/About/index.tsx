@@ -13,7 +13,6 @@ const About: FC = () => {
     <Section
       className={getSCSSSelectors("about")}
       width="max-w-screen-xl"
-      paddingVerticle={["py-20"]}
       id="about-me-section"
     >
       <Header className="mb-14 md:mb-10">{data.title}</Header>
@@ -28,16 +27,7 @@ const About: FC = () => {
               addEmptyLine={richTextData.addEmptyLine}
             />
           ))}
-          <List
-            listItems={[
-              "Javascript (ES6+)",
-              "Typescript",
-              "React.js",
-              "Redux.js",
-              "Node.js",
-              "Sitecore CMS",
-            ]}
-          />
+          <List {...data.skillsList.props} />
         </div>
         <div className={getSCSSSelectors("right")}>
           <img src={data.image.src} alt={data.image.alt} />

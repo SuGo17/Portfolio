@@ -25,4 +25,5 @@ export type ButtonVariant =
   | "ghost-primary"
   | "ghost-secondary"
   | "contained-primary"
-  | "contained-secondary";
+  | "contained-secondary"
+  | "ghost-neutral-hover-contained";

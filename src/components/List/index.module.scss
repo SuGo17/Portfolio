@@ -2,17 +2,23 @@
 @use "@Styles/utils.module.scss";
 
 .list-container {
-  @apply grid gap-x-0 gap-y-3 p-0 mt-5 list-none overflow-hidden;
-  grid-template-columns: repeat(2, minmax(140px, 200px));
+  @apply flex flex-col gap-x-0 gap-y-2 p-0 mt-5 list-none overflow-hidden;
+
+  &.display-grid {
+    @apply grid;
+    grid-template-columns: repeat(
+      var(--grid-columns),
+      minmax(var(--grid-min-width), var(--grid-max-width))
+    );
+  }
 
   .list-item {
-    @apply flex items-center gap-3 text-base;
+    @apply flex gap-2 text-base;
     color: var(--text);
 
     &::before {
       @apply text-xl;
       content: "▹";
-      line-height: 12px;
       color: var(--primary);
     }
   }

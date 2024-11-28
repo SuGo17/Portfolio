@@ -10,7 +10,7 @@ type SectionProps = React.HTMLAttributes<HTMLElement> & {
 
 const Section: FC<SectionProps> = ({
   width = "",
-  paddingVerticle = ["py-6"],
+  paddingVerticle = ["py-10", "md:py-24"],
   paddingHorizontal = ["md:px-20", "px-6"],
   children,
   className,

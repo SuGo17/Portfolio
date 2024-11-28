@@ -34,7 +34,7 @@ const Hero: FC = () => {
         as="a"
         variant="contained-primary"
         href={data.cta.href}
-        className="mt-4"
+        className="mt-4 text-xl"
       >
         {data.cta.text}
       </Button>

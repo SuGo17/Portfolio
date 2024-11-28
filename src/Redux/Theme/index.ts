@@ -9,7 +9,7 @@ export interface ThemeState {
 const initialTheme = localStorage.getItem(THEME) as ThemeType;
 
 const initialState: ThemeState = {
-  theme: initialTheme || ThemeType.DARK,
+  theme: initialTheme || ThemeType.LIGHT,
 };
 
 export const themeSlice = createSlice({

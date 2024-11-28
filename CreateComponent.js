@@ -6,20 +6,22 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Template for the React component
-const componentTemplate = (componentName) =>
-  `import {FC} from 'react';
+const componentTemplate = (componentName) => {
+  return `import {FC} from 'react';
 import modules from "./index.module.scss";
-
+import useGetStyleSelectors from '@src/Hooks/useGetStyleSelectors';
+  
 type ${componentName}Props = {};
-
+  
 const ${componentName}:FC<${componentName}Props> = () => {
+    const getSCSSSelectors = useGetStyleSelectors(modules);
     return (
         <div></div>
     );
 }
-
-export default ${componentName};
-`;
+  
+export default ${componentName};`;
+};
 
 // Function to create the component file
 const createComponent = (directoryPath, componentName) => {
@@ -44,7 +46,7 @@ const createComponent = (directoryPath, componentName) => {
   fs.writeFileSync(
     cssPath,
     `@use "@Styles/index.module.scss";
-  @use "@Styles/utils.module.scss"`
+@use "@Styles/utils.module.scss"`
   );
 
   console.log(`Component ${componentName} created at ${filePath}`);
