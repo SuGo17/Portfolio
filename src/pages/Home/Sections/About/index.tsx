@@ -12,7 +12,7 @@ const About: FC = () => {
   return (
     <Section
       className={getSCSSSelectors("about")}
-      width="max-w-screen-xl"
+      width="max-w-screen-lg"
       id="about-me-section"
     >
       <Header className="mb-14 md:mb-10">{data.title}</Header>
@@ -27,7 +27,10 @@ const About: FC = () => {
               addEmptyLine={richTextData.addEmptyLine}
             />
           ))}
-          <List {...data.skillsList.props} />
+          <List
+            {...data.skillsList.props}
+            className={getSCSSSelectors("skills")}
+          />
         </div>
         <div className={getSCSSSelectors("right")}>
           <img src={data.image.src} alt={data.image.alt} />

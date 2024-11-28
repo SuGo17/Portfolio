@@ -12,6 +12,11 @@
       .about-highlight-text {
         @apply inline;
       }
+      .skills {
+        li {
+          @apply text-base;
+        }
+      }
     }
     .right {
       @apply w-full lg:w-2/5 flex items-center justify-center relative order-1 lg:order-2;

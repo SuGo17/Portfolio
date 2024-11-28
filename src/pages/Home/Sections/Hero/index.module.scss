@@ -32,4 +32,8 @@
       @apply font-normal;
     }
   }
+  .cta {
+    @apply mt-4 text-xl font-bold uppercase;
+    letter-spacing: 1px;
+  }
 }

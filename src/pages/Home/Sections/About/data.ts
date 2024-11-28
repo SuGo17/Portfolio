@@ -72,6 +72,7 @@ export const data: AboutDataType = {
     props: {
       isGrid: true,
       gridColumns: 2,
+      className: "skills",
       listItems: [
         "Javascript (ES6+)",
         "Typescript",

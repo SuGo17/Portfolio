@@ -8,10 +8,10 @@ type MenuProps = {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 const Menu: FC<MenuProps> = ({ isOpen, className, setIsOpen }) => {
-  return isOpen ? (
-    <IoMdClose className={className} onClick={() => setIsOpen(false)} />
-  ) : (
-    <RiMenu3Fill className={className} onClick={() => setIsOpen(true)} />
+  return (
+    <button className={className} onClick={() => setIsOpen((prev) => !prev)}>
+      {isOpen ? <IoMdClose /> : <RiMenu3Fill />}
+    </button>
   );
 };
 

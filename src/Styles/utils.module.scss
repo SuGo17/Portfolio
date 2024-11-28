@@ -5,8 +5,7 @@ $lg: 1024px;
   $property: all,
   $duration: 1s,
   $animation-type: ease,
-  $delay: 0
+  $delay: 0s
 ) {
-  transition: $property $duration $animation-type;
-  transition-delay: $delay;
+  transition: $property $duration $animation-type $delay;
 }

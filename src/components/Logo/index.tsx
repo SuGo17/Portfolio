@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-export type LogoProps = {
+export type LogoProps = React.HTMLAttributes<HTMLOrSVGElement> & {
   height?: string;
   width?: string;
   bgColor?: string;
@@ -12,6 +12,7 @@ const Logo: FC<LogoProps> = ({
   height = "40",
   width = "49",
   fill = "#fff",
+  ...rest
 }) => {
   return (
     <svg
@@ -20,6 +21,7 @@ const Logo: FC<LogoProps> = ({
       viewBox={`0 0 ${width} ${height}`}
       fill={bgColor}
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <path
         fillRule="evenodd"

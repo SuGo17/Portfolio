@@ -7,7 +7,7 @@ main {
 
 .heading {
   @apply flex items-end gap-4;
-  @apply text-2xl lg:text-4xl md:text-3xl font-semibold whitespace-nowrap;
+  @apply text-2xl lg:text-4xl md:text-3xl font-extrabold whitespace-nowrap;
   letter-spacing: 2px;
   color: var(--heading);
   @include utils.transition();

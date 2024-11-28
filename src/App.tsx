@@ -10,7 +10,7 @@ function App() {
   ) as Themes;
 
   return (
-    <main className={theme}>
+    <main className={`${theme} px-[25px] md:px-[50px] lg:px-[100px]`}>
       <RouterComponent />
     </main>
   );

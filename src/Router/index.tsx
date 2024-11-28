@@ -6,7 +6,9 @@ import Nav from "@components/Nav";
 const RouterComponent: FC = () => {
   return (
     <BrowserRouter>
-      <Nav />
+      <header>
+        <Nav />
+      </header>
       <Routes>
         {routes.map(({ path, Element }, index) => (
           <Route path={path} element={<Element />} key={index} />

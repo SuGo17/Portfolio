@@ -12,17 +12,23 @@ body {
 .nav {
   @apply p-6 lg:px-20 lg:py-8 z-40;
   @apply flex items-center justify-between;
-  @apply fixed top-0 left-0 right-0 bg-inherit;
+  @apply fixed top-0 left-0 right-0;
+  background-color: color-mix(in srgb, var(--background), transparent 15%);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
   transform: translateY(-100%);
-  transition: transform 0.3s ease-out 0s;
+  transition: all 0.3s ease, background-color 1s ease;
   &.show-nav {
     transform: translateY(0);
+  }
+  &.transparent-background {
+    @apply px-6 lg:px-20 !pb-2 !pt-2 lg:py-8;
   }
   .middle {
     @apply flex justify-center items-center;
     @apply h-full w-full lg:h-auto lg:w-auto;
     @apply fixed lg:static;
-    @apply left-0 top-0 w-screen md:w-auto h-screen md:h-auto;
+    @apply left-0 top-0 w-screen lg:w-auto h-screen lg:h-auto;
     @apply lg:z-auto z-40 lg:translate-x-0 translate-x-full lg:bg-inherit;
     @include utils.transition();
     @media (max-width: 1024px) {

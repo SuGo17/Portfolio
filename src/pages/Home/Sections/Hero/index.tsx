@@ -10,7 +10,7 @@ const Hero: FC = () => {
   return (
     <Section
       className={getSCSSSelectors("hero")}
-      width="max-w-screen-xl"
+      width="max-w-screen-lg"
       paddingVerticle={["py-[104px]"]}
     >
       <h1 className={getSCSSSelectors("name")}>
@@ -34,7 +34,7 @@ const Hero: FC = () => {
         as="a"
         variant="contained-primary"
         href={data.cta.href}
-        className="mt-4 text-xl"
+        className={getSCSSSelectors("cta")}
       >
         {data.cta.text}
       </Button>

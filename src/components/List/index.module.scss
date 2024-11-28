@@ -13,7 +13,7 @@
   }
 
   .list-item {
-    @apply flex gap-2 text-base;
+    @apply flex gap-2 text-lg;
     color: var(--text);
 
     &::before {

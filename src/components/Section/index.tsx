@@ -11,7 +11,7 @@ type SectionProps = React.HTMLAttributes<HTMLElement> & {
 const Section: FC<SectionProps> = ({
   width = "",
   paddingVerticle = ["py-10", "md:py-24"],
-  paddingHorizontal = ["md:px-20", "px-6"],
+  paddingHorizontal = ["px-0"],
   children,
   className,
   ...rest
