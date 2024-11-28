@@ -22,7 +22,7 @@ body {
     @apply flex justify-center items-center;
     @apply h-full w-full lg:h-auto lg:w-auto;
     @apply fixed lg:static;
-    @apply top-0 right-0 bottom-0 left-0;
+    @apply left-0 top-0 w-screen md:w-auto h-screen md:h-auto;
     @apply lg:z-auto z-40 lg:translate-x-0 translate-x-full lg:bg-inherit;
     @include utils.transition();
     @media (max-width: 1024px) {
