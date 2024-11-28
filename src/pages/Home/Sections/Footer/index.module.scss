@@ -1,0 +1,21 @@
+@use "@Styles/index.module.scss";
+@use "@Styles/utils.module.scss";
+
+.footer {
+  --footer-background-color: none;
+  @apply flex flex-col items-center justify-center -mx-[25px] md:-mx-[50px] lg:-mx-[100px];
+  @apply py-[50px];
+  background-color: var(--footer-background-color);
+  @include utils.transition();
+  .social-links {
+    @apply flex gap-8;
+  }
+  .copy-rights {
+    @apply text-sm md:text-base mt-6 flex items-center gap-1;
+    color: var(--sub-heading);
+    .icon {
+      @apply text-xs;
+      color: var(--sub-heading);
+    }
+  }
+}

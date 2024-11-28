@@ -33,10 +33,12 @@ const Hero: FC = () => {
       <Button
         as="a"
         variant="contained-primary"
-        href={data.cta.href}
+        href={data?.cta?.href}
         className={getSCSSSelectors("cta")}
+        target={data?.cta?.target}
+        download
       >
-        {data.cta.text}
+        {data?.cta?.text}
       </Button>
     </Section>
   );

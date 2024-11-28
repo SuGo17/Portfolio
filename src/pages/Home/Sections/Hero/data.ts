@@ -11,6 +11,7 @@ export const data = {
   },
   cta: {
     text: "Resume",
-    href: "https://www.example.com/resume",
+    href: "./Surya_Resume.pdf",
+    target: "_blank",
   },
 };

@@ -46,7 +46,7 @@ const createComponent = (directoryPath, componentName) => {
   fs.writeFileSync(
     cssPath,
     `@use "@Styles/index.module.scss";
-@use "@Styles/utils.module.scss"`
+@use "@Styles/utils.module.scss";`
   );
 
   console.log(`Component ${componentName} created at ${filePath}`);
