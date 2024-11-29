@@ -1,7 +1,7 @@
 export const data = [
   {
     name: "Accenture",
-    href: "",
+    href: "https://www.accenture.com/",
     role: "Software Engineer",
     range: { from: "October 2021", to: "Present" },
     description: [
@@ -14,7 +14,7 @@ export const data = [
   {
     name: "Innovation Creation Solutions",
     shortName: "IC Solutions",
-    href: "",
+    href: "https://icsoln.com/",
     role: "Software Engineer",
     range: { from: "March 2017", to: "April 2017" },
     description: [

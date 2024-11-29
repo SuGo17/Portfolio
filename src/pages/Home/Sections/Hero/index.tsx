@@ -25,6 +25,7 @@ const Hero: FC = () => {
           variant="ghost-primary"
           href={data.company.href}
           className={getSCSSSelectors("company-name")}
+          target="_blank"
         >
           {data.company.title}
         </Button>
