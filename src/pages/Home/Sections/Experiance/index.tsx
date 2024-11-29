@@ -117,7 +117,12 @@ const Experiance: FC = () => {
                   <span>{role}</span>
                   <span className={getSCSSSelectors("company")}>
                     &nbsp; &mdash; &nbsp;
-                    <Button as="a" variant="ghost-primary" href={href}>
+                    <Button
+                      as="a"
+                      variant="ghost-primary"
+                      href={href}
+                      target="_blank"
+                    >
                       {name}
                     </Button>
                   </span>

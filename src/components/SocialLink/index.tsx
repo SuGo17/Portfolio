@@ -41,7 +41,7 @@ const SocialLink: FC<SocialLinkProps> = (props) => {
   const { name = "facebook", className = "", href = "", ...rest } = props;
   const getSCSSSelectors = useGetStyleSelectors(modules);
   return (
-    <a href={href}>
+    <a href={href} target="_blank">
       <Icon
         name={name}
         className={getSCSSSelectors("social-icon", className)}
