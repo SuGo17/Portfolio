@@ -21,7 +21,8 @@
     }
 
     &:not(:disabled):hover::after,
-    &:not(:disabled):focus::after {
+    &:not(:disabled):focus::after,
+    &:not(:disabled):active::after {
       @apply w-1/3;
     }
 
@@ -29,6 +30,14 @@
       color: var(--primary);
       &::after {
         background-color: var(--primary);
+      }
+      &:hover {
+        color: var(--primary-hover);
+      }
+      &:hover::after,
+      &:focus::after,
+      &:active::after {
+        background-color: var(--primary-hover);
       }
     }
     &.ghost-secondary {
@@ -55,7 +64,7 @@
   }
 
   &.contained {
-    --button-padding: 0.75rem 2rem;
+    --button-padding: 0.5rem 2rem;
     padding: var(--button-padding);
     border-radius: 3px;
     &:not(:disabled):hover {

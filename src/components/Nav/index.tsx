@@ -56,7 +56,9 @@ const Nav: FC = () => {
           <ul className={getSCSSSelectors("nav-links")}>
             {navLinks.map((navLink) => (
               <li key={navLink.href} className={getSCSSSelectors("nav-link")}>
-                <a href={navLink.href}>{navLink.title}</a>
+                <button onClick={() => setIsOpen(false)}>
+                  <a href={navLink.href}>{navLink.title}</a>
+                </button>
               </li>
             ))}
           </ul>
