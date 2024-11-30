@@ -1,11 +1,21 @@
 @use "@Styles/index.module.scss";
 @use "@Styles/utils.module.scss";
 
+[color-scheme="light"] {
+  .footer {
+    --footer-background-color: #dedfe0;
+  }
+}
+
+[color-scheme="dark"] {
+  .footer {
+    --footer-background-color: black;
+  }
+}
+
 .footer {
-  --footer-background-color: none;
-  @apply flex flex-col items-center justify-center -mx-[25px] md:-mx-[50px] lg:-mx-[100px];
-  @apply py-[50px];
-  background-color: var(--footer-background-color);
+  @apply flex flex-col items-center justify-center -mx-[25px] md:-mx-[50px] lg:-mx-[100px] bg-[var(--footer-background-color)];
+  @apply py-[50px] pt-60;
   @include utils.transition();
   .social-links {
     @apply flex gap-8;

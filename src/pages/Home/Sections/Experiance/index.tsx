@@ -64,7 +64,11 @@ const Experiance: FC = () => {
   };
 
   return (
-    <Section width="max-w-screen-lg" id="experience-section">
+    <Section
+      width="max-w-screen-lg"
+      id="experience-section"
+      paddingVerticle={["pt-10", "md:pt-24"]}
+    >
       <Header className="mb-14 md:mb-10">Experiance</Header>
 
       <div

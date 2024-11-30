@@ -10,8 +10,8 @@ import { Themes } from "@Redux/Theme/enum";
 import Menu from "./Menu";
 import useGetStyleSelectors from "@Hooks/useGetStyleSelectors";
 
-const LIGHT_ICON_FILL = "#5A23B9";
-const DARK_ICON_FILL = "#fbb847";
+export const LIGHT_ICON_FILL = "#5A23B9";
+export const DARK_ICON_FILL = "#fbb847";
 const SCROLL_OFFSET = 300;
 
 const Nav: FC = () => {

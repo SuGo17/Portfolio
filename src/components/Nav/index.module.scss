@@ -21,8 +21,15 @@ body {
   &.show-nav {
     transform: translateY(0);
   }
+  svg {
+    @include utils.transition(all, 0.3s);
+  }
   &.transparent-background {
     @apply px-6 lg:px-20 !pb-2 !pt-2 lg:py-8;
+
+    svg {
+      transform: scale(0.8);
+    }
   }
   .middle {
     @apply flex justify-center items-center;

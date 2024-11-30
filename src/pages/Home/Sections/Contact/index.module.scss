@@ -1,8 +1,28 @@
 @use "@Styles/index.module.scss";
 @use "@Styles/utils.module.scss";
 
+[color-scheme="light"] {
+  .contact-details-container {
+    --contact-background-color: #f2f3f4;
+  }
+}
+
+[color-scheme="dark"] {
+  .contact-details-container {
+    --contact-background-color: #161718;
+  }
+}
+
 .contact-details-container {
-  @apply w-full flex flex-col items-center;
+  --contact-background-color: none;
+  @apply w-full flex flex-col items-center p-8 rounded-3xl;
+  backdrop-filter: 15px;
+  background-color: color-mix(
+    in srgb,
+    var(--contact-background-color),
+    transparent 10%
+  );
+  @include utils.transition();
 
   .heading {
     @apply text-lg gap-2 text-[var(--primary)];

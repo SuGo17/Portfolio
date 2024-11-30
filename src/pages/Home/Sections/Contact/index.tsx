@@ -9,7 +9,12 @@ import Button from "@src/components/Button";
 const Contact: FC = () => {
   const getSCSSSelectors = useGetStyleSelectors(modules);
   return (
-    <Section width="max-w-screen-lg" id="contact-section">
+    <Section
+      width="max-w-screen-lg"
+      id="contact-section"
+      className="translate-y-2/4"
+      paddingVerticle={["p-0"]}
+    >
       <div className={getSCSSSelectors("contact-details-container")}>
         <Header className={getSCSSSelectors("heading")}>What's Next?</Header>
         <Header numberedHeading={false} className={getSCSSSelectors("title")}>
