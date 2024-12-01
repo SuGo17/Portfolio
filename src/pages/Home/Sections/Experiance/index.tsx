@@ -65,7 +65,7 @@ const Experiance: FC = () => {
 
   return (
     <Section width="max-w-screen-lg" id="experience-section">
-      <Header className="mb-14 md:mb-10">Experiance</Header>
+      <Header className="mb-14 md:mb-10">Experience</Header>
 
       <div
         className={getSCSSSelectors("jobs-container")}
