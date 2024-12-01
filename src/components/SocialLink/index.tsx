@@ -46,7 +46,7 @@ const SocialLink: FC<SocialLinkProps> = (props) => {
 
   if (!children)
     return (
-      <div className={getSCSSSelectors("social-link", className)}>
+      <div className={getSCSSSelectors("social-link", className)} {...rest}>
         <a href={href} target="_blank">
           <Icon
             name={name}
@@ -54,17 +54,15 @@ const SocialLink: FC<SocialLinkProps> = (props) => {
               "social-icon",
               children ? "primary" : ""
             )}
-            {...rest}
           />
         </a>
       </div>
     );
   return (
-    <div className={getSCSSSelectors("social-link", className)}>
+    <div className={getSCSSSelectors("social-link", className)} {...rest}>
       <Icon
         name={name}
         className={getSCSSSelectors("social-icon", children ? "primary" : "")}
-        {...rest}
       />
       <Button as="a" variant="ghost-primary" href={href} target="_blank">
         {children}
