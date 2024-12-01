@@ -14,7 +14,7 @@ const Projects: FC = () => {
       id="projects-section"
       paddingVerticle={["pt-10", "md:pt-24"]}
     >
-      <Header className="mb-24">Some Things I've Built</Header>
+      <Header className="mb-8 lg:mb-24">Some Things I've Built</Header>
       <div className={getSCSSSelectors("project-cards-container")}>
         {data.projects.map((project, index) => (
           <ProjectCard {...project} key={index} />
