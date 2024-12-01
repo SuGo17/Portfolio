@@ -2,8 +2,6 @@
 @use "@Styles/utils.module.scss";
 
 body {
-  counter-reset: nav-link;
-
   &:has(div.middle.nav-open) {
     overflow: hidden;
   }

@@ -1,10 +1,6 @@
 @use "@Styles/index.module.scss";
 @use "@Styles/utils.module.scss";
 
-main {
-  counter-reset: section 0;
-}
-
 .heading {
   @apply flex items-end gap-4;
   @apply text-2xl lg:text-4xl md:text-3xl font-extrabold whitespace-nowrap;

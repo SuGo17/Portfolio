@@ -20,6 +20,7 @@ body {
 
 main {
   @include utils.transition;
+  counter-reset: section project-card nav-link;
 }
 
 main.light {

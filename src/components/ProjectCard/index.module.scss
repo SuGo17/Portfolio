@@ -1,10 +1,6 @@
 @use "@Styles/index.module.scss";
 @use "@Styles/utils.module.scss";
 
-main {
-  counter-reset: project-card;
-}
-
 [color-scheme="light"] {
   .card-container {
     --card-background: #e2e8f0;
