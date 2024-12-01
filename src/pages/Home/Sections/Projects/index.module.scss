@@ -1,0 +1,6 @@
+@use "@Styles/index.module.scss";
+@use "@Styles/utils.module.scss";
+
+.project-cards-container {
+  @apply flex flex-col gap-24;
+}

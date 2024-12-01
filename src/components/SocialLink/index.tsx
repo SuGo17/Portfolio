@@ -6,6 +6,9 @@ import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGitAlt } from "react-icons/fa6";
 import { FaPaperPlane } from "react-icons/fa6";
+import { LuExternalLink } from "react-icons/lu";
+
+import Button from "../Button";
 
 export type IconNameType =
   | "instagram"
@@ -15,7 +18,7 @@ export type IconNameType =
   | "email"
   | "copy";
 
-type SocialLinkProps = React.HTMLAttributes<HTMLOrSVGElement> & {
+type SocialLinkProps = React.HTMLAttributes<HTMLDivElement> & {
   name?: IconNameType;
   href?: string;
 };
@@ -33,21 +36,26 @@ const Icon = ({ name, className }: SocialLinkProps): JSX.Element => {
     case "email":
       return <FaPaperPlane className={className} />;
     default:
-      return <></>;
+      return <LuExternalLink className={className} />;
   }
 };
 
 const SocialLink: FC<SocialLinkProps> = (props) => {
-  const { name = "facebook", className = "", href = "", ...rest } = props;
+  const { name, className = "", href = "", children, ...rest } = props;
   const getSCSSSelectors = useGetStyleSelectors(modules);
   return (
-    <a href={href} target="_blank">
+    <div className={getSCSSSelectors("social-link", className)}>
       <Icon
         name={name}
-        className={getSCSSSelectors("social-icon", className)}
+        className={getSCSSSelectors("social-icon", children ? "primary" : "")}
         {...rest}
       />
-    </a>
+      {children && (
+        <Button as="a" variant="ghost-primary" href={href} target="_blank">
+          {children}
+        </Button>
+      )}
+    </div>
   );
 };
 

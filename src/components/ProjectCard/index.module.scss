@@ -1,0 +1,131 @@
+@use "@Styles/index.module.scss";
+@use "@Styles/utils.module.scss";
+
+main {
+  counter-reset: project-card;
+}
+
+[color-scheme="light"] {
+  .card-container {
+    --card-background: #e2e8f0;
+    --card-numbering-color: #4e4d4d;
+    --card-numbering-hover-color: #000;
+
+    .right {
+      --description-background: var(--background-dark);
+      --description-color: #fff;
+    }
+  }
+}
+[color-scheme="dark"] {
+  .card-container {
+    --card-background: #1e293b;
+    --card-numbering-color: #e7ecf4;
+    --card-numbering-hover-color: #fff;
+
+    .right {
+      --description-background: var(--background-light);
+      --description-color: #000;
+    }
+  }
+}
+
+.card-container {
+  @apply flex items-center gap-4 relative lg:static rounded-md lg:rounded-none h-[60vh] md:h-[50vh] lg:h-auto;
+  @include utils.transition();
+  &:hover .left::after {
+    @apply h-full;
+  }
+
+  &:nth-child(odd) {
+    .right {
+      @apply text-right;
+
+      .cta-links,
+      .tech-list {
+        @apply justify-end;
+      }
+    }
+  }
+
+  &:nth-child(even) {
+    .left {
+      @apply order-2;
+
+      &::after,
+      &::before {
+        @apply left-auto right-4;
+      }
+    }
+    .right {
+      @apply text-left order-1 z-10;
+
+      .project-description {
+        @apply translate-x-0 z-20;
+      }
+
+      .tech-list,
+      .cta-links {
+        @apply justify-start;
+      }
+    }
+  }
+
+  .left {
+    @apply h-full lg:h-auto lg:w-3/4 bg-[#e2e8f0] lg:bg-[var(--card-background)] relative rounded-md;
+    @include utils.transition();
+
+    &::before {
+      @apply absolute top-4 left-4 text-6xl font-bold text-white lg:text-[var(--card-numbering-color)] opacity-50 z-10;
+      font-family: index.$font-league-spartan;
+      counter-increment: project-card 1;
+      content: "0" counter(project-card);
+    }
+
+    &::after {
+      @apply absolute top-4 left-4 text-6xl font-bold text-white lg:text-[var(--card-numbering-hover-color)] opacity-100 h-0 overflow-hidden z-10;
+      font-family: index.$font-league-spartan;
+      content: "0" counter(project-card);
+      @include utils.transition(all, 1s);
+    }
+    .overlay {
+      @apply absolute top-0 left-0 w-full h-full bg-black opacity-80 lg:opacity-20;
+      @include utils.transition(opacity, 1s);
+    }
+  }
+  .right {
+    @apply lg:w-1/2 text-gray-400 lg:text-[var(--text)] absolute lg:static p-4;
+    @apply left-0 right-0 top-0 bottom-0;
+    align-content: end;
+    @include utils.transition();
+
+    .project-overline {
+      @apply text-base font-semibold text-[var(--primary-dark)] lg:text-[var(--primary)] mb-1;
+      @include utils.transition();
+    }
+    .project-title {
+      @apply text-3xl font-extrabold mb-4 text-white lg:text-[var(--heading)];
+      @include utils.transition();
+    }
+    .project-description {
+      @apply text-base lg:py-4 lg:px-4 translate-x-0 lg:-translate-x-1/4 w-full lg:w-[133%] lg:bg-[var(--description-background)] lg:text-[var(--description-color)] rounded-[4px];
+      @include utils.transition();
+      line-height: 1.3;
+      word-spacing: 1px;
+    }
+    .tech-list {
+      @apply flex gap-x-4 gap-y-1 text-base justify-end mt-3 flex-wrap;
+    }
+    .cta-links {
+      @apply flex gap-6 mt-4;
+      .link {
+        svg {
+          @apply text-xl;
+        }
+        a {
+          @apply text-lg font-normal;
+        }
+      }
+    }
+  }
+}

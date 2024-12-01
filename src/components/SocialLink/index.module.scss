@@ -1,11 +1,15 @@
 @use "@Styles/index.module.scss";
 @use "@Styles/utils.module.scss";
-
-.social-icon {
-  --color-hover: var(--primary);
-  @apply text-3xl text-[var(--text)];
-  @include utils.transition(all, 0.3s);
-  &:hover {
-    @apply text-[var(--color-hover)];
+.social-link {
+  @apply flex items-center gap-0.5;
+  .social-icon {
+    &.primary {
+      @apply text-[var(--primary)];
+    }
+    @apply text-3xl text-[var(--text)];
+    @include utils.transition(all, 0.3s);
+    &:hover {
+      @apply text-[var(--primary)];
+    }
   }
 }
