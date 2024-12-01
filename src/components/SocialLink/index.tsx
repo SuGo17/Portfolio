@@ -43,6 +43,22 @@ const Icon = ({ name, className }: SocialLinkProps): JSX.Element => {
 const SocialLink: FC<SocialLinkProps> = (props) => {
   const { name, className = "", href = "", children, ...rest } = props;
   const getSCSSSelectors = useGetStyleSelectors(modules);
+
+  if (!children)
+    return (
+      <div className={getSCSSSelectors("social-link", className)}>
+        <a href={href} target="_blank">
+          <Icon
+            name={name}
+            className={getSCSSSelectors(
+              "social-icon",
+              children ? "primary" : ""
+            )}
+            {...rest}
+          />
+        </a>
+      </div>
+    );
   return (
     <div className={getSCSSSelectors("social-link", className)}>
       <Icon
@@ -50,11 +66,9 @@ const SocialLink: FC<SocialLinkProps> = (props) => {
         className={getSCSSSelectors("social-icon", children ? "primary" : "")}
         {...rest}
       />
-      {children && (
-        <Button as="a" variant="ghost-primary" href={href} target="_blank">
-          {children}
-        </Button>
-      )}
+      <Button as="a" variant="ghost-primary" href={href} target="_blank">
+        {children}
+      </Button>
     </div>
   );
 };
